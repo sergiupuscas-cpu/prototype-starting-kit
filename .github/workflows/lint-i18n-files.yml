@@ -1,0 +1,32 @@
+name: Lint i18n files
+
+on:
+  pull_request:
+    types: [opened, ready_for_review, reopened, synchronize]
+
+jobs:
+  format-and-commit:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.head.ref == 'phrase-translations'
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v5
+      with:
+        ref: 'refs/heads/phrase-translations'
+
+    - name: Run format:i18n script
+      run: npm run format:i18n
+    
+    - name: Check for changes
+      id: check_changes
+      run: |
+         git diff --exit-code || echo "changes=true" >> "$GITHUB_ENV"
+
+    - name: Commit changes
+      if: env.changes == 'true'
+      run: |
+        git config user.name "automotiveengineeringbot"
+        git config user.email "automotive.engineering@swissmarketplace.group"
+        git add .
+        git commit -m "Automated i18n formatting"
+        git push origin ${{ github.event.pull_request.head.ref }}

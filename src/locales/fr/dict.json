@@ -1,0 +1,205 @@
+{
+  "auth": {
+    "tenantSelection": {
+      "description": "Vous pourrez changer de garage plus tard dans votre portail concessionnaire.",
+      "loginButton": "Se connecter",
+      "selectButton": "Sélectionner le garage",
+      "selectionTitle": "Sélectionner le garage",
+      "title": "Sélectionnez un de vos garages"
+    }
+  },
+  "checkboxFilter": {
+    "collapsed": "Afficher plus",
+    "expanded": "Afficher moins"
+  },
+  "errorPage": {
+    "404": {
+      "description": "Avez-vous tapé ou copié le lien? Si oui, nous vous suggérons de vérifier votre saisie et de recharger la page.",
+      "title": "Désolé, cette page n’a pas pu être trouvée"
+    },
+    "500": {
+      "description": "Notre équipe est déjà en train de chercher une solution au problème. Effacez l’historique de navigation/du navigateur et rechargez la page ou allez à la page d’accueil.",
+      "title": "Désolé, quelque chose a mal tourné"
+    },
+    "backToHomepage": "Vers la page d’accueil",
+    "backToLogin": "Retour à la connexion",
+    "clientSide": {
+      "description": "Notre équipe est déjà en train de chercher une solution au problème. Effacez l’historique de navigation/du navigateur et rechargez la page ou allez à la page d’accueil.",
+      "title": "Désolé, votre navigateur a généré une erreur"
+    },
+    "contactSupport": "Contacter le service clientèle",
+    "EMAIL_CHANGE_VERIFICATION_ERROR": {
+      "content": {
+        "email": "<0>Email:</0> helpdesk@autoscout24.ch",
+        "phone": "<0>Téléphone:</0> +41 31 744 17 37",
+        "workingHours": "<0>Horaires d'ouverture:</0> Lundi - Vendredi 08:00-12:00 / 13:00-17:00"
+      },
+      "description": "Vous pouvez soit demander un nouveau changement d'email depuis votre compte, soit contacter le service client.",
+      "title": "Ce lien a expiré ou est invalide"
+    },
+    "INITIAL_UNVERIFIED_EMAIL": {
+      "description": "Presque terminé, pour vous connecter, veuillez vérifier votre boîte de réception et cliquer sur le lien de vérification.",
+      "title": "Veuillez vérifier votre adresse e-mail"
+    },
+    "reloadPage": "Rechargez la page",
+    "UNKNOWN_AUTH_ERROR": {
+      "description": "Nous rencontrons des difficultés pour vous connecter. Veuillez réessayer et, si le problème persiste, contactez notre service clients pour obtenir de l’aide.",
+      "title": "Nous n'avons pas pu vous connecter"
+    },
+    "UNVERIFIED_EMAIL": {
+      "description": "Vous ne pouvez pas vous connecter car votre adresse e-mail n’est pas vérifiée. Veuillez vérifier dans votre boîte de réception si vous avez reçu un lien de vérification.",
+      "title": "Veuillez vérifier votre e-mail"
+    },
+    "USER_BLOCKED": {
+      "description": "Votre compte est bloqué. Veuillez contacter notre service clients.",
+      "title": "Votre compte est bloqué"
+    }
+  },
+  "filterSelectButton": {
+    "close": "Fermer",
+    "reset": "Réinitialiser"
+  },
+  "footer": {
+    "apps": {
+      "title": "App download"
+    },
+    "autoscout24": {
+      "sections": {
+        "brand": {
+          "insurance": "Assurances voiture",
+          "title": "AutoScout24"
+        }
+      }
+    },
+    "companies": {
+      "anibis": "anibis.ch",
+      "autoScout24": "AutoScout24",
+      "financeScout24": "FinanceScout24",
+      "immoScout24": "ImmoScout24",
+      "motoScout24": "MotoScout24",
+      "smg": "SMG Swiss Marketplace Group"
+    },
+    "copyright": "© Copyright {{year}} by SMG Swiss Marketplace Group SA. Tous droits réservés. Votre partenaire pour voitures d'occasion - recherche & achat de véhicules sur le plus grand marché automobile de Suisse",
+    "motoscout24": {
+      "sections": {
+        "brand": {
+          "insurance": "Assurances moto",
+          "title": "MotoScout24"
+        }
+      }
+    },
+    "sections": {
+      "aboutUs": {
+        "contact": "Contact",
+        "factsAndFigures": "Facts & Figures",
+        "jobs": "Postes vacants",
+        "newsletter": "Newsletter",
+        "title": "A propos de nous"
+      },
+      "advertisement": {
+        "smg": "Sur les portails SMG Swiss Marketplace Group",
+        "title": "Publicité"
+      },
+      "brand": {
+        "advancedSearch": "Recherche avancée",
+        "dealerSearch": "Rechercher point de vente",
+        "makes": "Aperçu marques",
+        "models": "Vue d’ensemble des modèles"
+      },
+      "legal": {
+        "agb": "Conditions générales",
+        "agbDirect": "CG AutoScout24 Direct",
+        "cookieSettings": "Paramètres de confidentialité",
+        "dataProtection": "Protection des données",
+        "imprint": "Impressum",
+        "rules": "Règles d'insertion",
+        "securityHint": "Conseils de securité",
+        "title": "Mentions légales et sécurité"
+      },
+      "list": {
+        "direct": "AutoScout24 Direct",
+        "productsAndPrices": "Produits et prix",
+        "professionalPackages": "Packs pour garagistes",
+        "title": "Insérer",
+        "vehicles": "Véhicules"
+      },
+      "media": {
+        "contact": "Contact médias",
+        "title": "Médias"
+      }
+    }
+  },
+  "galleryHeader": {
+    "imageCount": "{{x}} de {{of}}"
+  },
+  "header": {
+    "assure": "Assurer",
+    "carSubscription": "Auto-Abo",
+    "electromobility": "Électromobilité",
+    "estimate": "Estimer",
+    "login": "Se connecter",
+    "magazine": "Magazin",
+    "more": "Plus",
+    "search": "Rechercher",
+    "searchMenu": {
+      "additional": "Autres",
+      "advancedSearch": "Recherche avancée",
+      "comparison": "Outil de Comparaison ({{ numberOfItems }})",
+      "dealer": "Points de vente",
+      "insuranceComparison": "Comparaison d’assurances",
+      "searchCars": "Rechercher des véhicules",
+      "searchMerchant": "Rechercher point de vente",
+      "searchMotorcycles": "Rechercher des motos",
+      "simpleSearch": "Recherche simple (page d'accueil)",
+      "vehicles": "Véhicules",
+      "viewedListings": "Annonces vues"
+    },
+    "sell": "Vendre",
+    "userMenu": {
+      "accountSettings": "Paramétrage du compte",
+      "advertisePartsAccessories": "Insérer des pièces détachées",
+      "autoRadar": "AutoRadar",
+      "bookmarks": "Favoris",
+      "businessImage": "BusinessImage",
+      "carPark": "Parc de véhicules",
+      "cockpit": "Cockpit",
+      "contactDetails": "Informations de contact",
+      "contactRequests": "Demandes de contact",
+      "createAd": "Créer une annonce",
+      "dmsLog": "DmsLog",
+      "editPhotobar": "Modifier la Photobar",
+      "editUser": "Liste des membres",
+      "hci": "HCI",
+      "importInfo": "ImportInfo",
+      "infoPage": "InfoPage",
+      "infoPortal": "InfoPortal",
+      "insuranceComparison": "Comparaison d’assurances",
+      "logout": "Logout",
+      "manageAdditionalTitles": "Gérer titre complémentaire",
+      "manageAutoRadar": "Gérer AutoRadar",
+      "manageNotes": "Gérer les remarques",
+      "manageVehicles": "Gestion de mes véhicules",
+      "motorcyclePark": "Parc de motos",
+      "myMotorcycles": "Mes motos",
+      "myVehicles": "Mes véhicules",
+      "onlineAdvertising": "Publicité online",
+      "openingHours": "Heures d'ouverture",
+      "optimizer": "OptimizerBasic",
+      "optimizerPro": "OptimizerPro",
+      "partnerHub": "PartnerHub",
+      "printableList": "Liste Imprimable",
+      "printingCenter": "Centre d'impression",
+      "qualityLogo": "Sigle de qualité",
+      "requisitions": "Profil de recherche",
+      "reviews": "Évaluations",
+      "settings": "Préférences",
+      "toolsForPurchasing": "Outils pour l'achat",
+      "toolsForSelling": "Outils pour la vente",
+      "topCars": "TopCars",
+      "topListing": "TopListing",
+      "topListingPro": "TopListing Pro",
+      "topMotos": "TopMotos",
+      "userLanguage": "Langue de l'utilisateur"
+    }
+  }
+}

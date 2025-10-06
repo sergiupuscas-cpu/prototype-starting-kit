@@ -1,0 +1,205 @@
+{
+  "auth": {
+    "tenantSelection": {
+      "description": "You can switch to a different garage later in your dealer portal.",
+      "loginButton": "Log in",
+      "selectButton": "Select garage",
+      "selectionTitle": "Select garage",
+      "title": "Select one of your garages"
+    }
+  },
+  "checkboxFilter": {
+    "collapsed": "Show more",
+    "expanded": "Show less"
+  },
+  "errorPage": {
+    "404": {
+      "description": "The page you are trying to reach might no longer exist. If you typed in or copied the link, you could try doing it again.",
+      "title": "Sorry, we can’t find that page"
+    },
+    "500": {
+      "description": "We have found a problem and have reported it to our team to fix it. In the meantime, clear your browser history and refresh the page or go to the home page.",
+      "title": "Sorry, something went wrong"
+    },
+    "backToHomepage": "Go to home",
+    "backToLogin": "Go back to Login",
+    "clientSide": {
+      "description": "We have found a problem and have reported it to our team to fix it. In the meantime, clear your browser history and refresh the page or go to the home page.",
+      "title": "Sorry, your browser threw an error"
+    },
+    "contactSupport": "Contact customer support",
+    "EMAIL_CHANGE_VERIFICATION_ERROR": {
+      "content": {
+        "email": "<0>Email:</0> helpdesk@autoscout24.ch",
+        "phone": "<0>Phone:</0> +41 31 744 17 37",
+        "workingHours": "<0>Working hours:</0> Monday - Friday 08.00-12.00 / 13.00-17.00"
+      },
+      "description": "You can either request a new email change from your account or contact customer support.",
+      "title": "This Link Has Expired or Is Invalid"
+    },
+    "INITIAL_UNVERIFIED_EMAIL": {
+      "description": "Almost done, in order to log in please check your inbox and click on the verification link.",
+      "title": "Please verify your email"
+    },
+    "reloadPage": "Refresh page",
+    "UNKNOWN_AUTH_ERROR": {
+      "description": "We're having trouble logging you in. Please try again, and if the issue persists, contact our customer support team for assistance.",
+      "title": "We couldn't log you in"
+    },
+    "UNVERIFIED_EMAIL": {
+      "description": "You cannot log in because your email address is not verified. Please check your inbox for a verification link.",
+      "title": "Please verify your email"
+    },
+    "USER_BLOCKED": {
+      "description": "We couldn't log you in because your account is blocked.",
+      "title": "Your account is blocked"
+    }
+  },
+  "filterSelectButton": {
+    "close": "Close",
+    "reset": "Reset"
+  },
+  "footer": {
+    "apps": {
+      "title": "Mobile Apps"
+    },
+    "autoscout24": {
+      "sections": {
+        "brand": {
+          "insurance": "Car insurance",
+          "title": "AutoScout24"
+        }
+      }
+    },
+    "companies": {
+      "anibis": "anibis.ch",
+      "autoScout24": "AutoScout24",
+      "financeScout24": "FinanceScout24",
+      "immoScout24": "ImmoScout24",
+      "motoScout24": "MotoScout24",
+      "smg": "SMG Swiss Marketplace Group"
+    },
+    "copyright": "© Copyright {{year}} by SMG Swiss Marketplace Group AG. All rights reserved. Your partner for second-hand cars - Search & buy cars in the largest car market in Switzerland",
+    "motoscout24": {
+      "sections": {
+        "brand": {
+          "insurance": "Motorbike insurance",
+          "title": "MotoScout24"
+        }
+      }
+    },
+    "sections": {
+      "aboutUs": {
+        "contact": "Contact",
+        "factsAndFigures": "Facts & Figures",
+        "jobs": "Vacancies",
+        "newsletter": "Newsletter",
+        "title": "About Us"
+      },
+      "advertisement": {
+        "smg": "On SMG Swiss Marketplace Group Portals",
+        "title": "Advertising"
+      },
+      "brand": {
+        "advancedSearch": "Advanced Search",
+        "dealerSearch": "Search Garages & Dealers",
+        "makes": "Brand Overview",
+        "models": "Model Overview"
+      },
+      "legal": {
+        "agb": "GTC",
+        "agbDirect": "GTC AutoScout24 Direct",
+        "cookieSettings": "Privacy Settings",
+        "dataProtection": "Data Protection",
+        "imprint": "imprint",
+        "rules": "Insertion Rules",
+        "securityHint": "Security Advice",
+        "title": "Legal & Security"
+      },
+      "list": {
+        "direct": "AutoScout24 Direct",
+        "productsAndPrices": "Products and Prices",
+        "professionalPackages": "Professional packages",
+        "title": "Advertise",
+        "vehicles": "Vehicles"
+      },
+      "media": {
+        "contact": "Media contact",
+        "title": "For Media"
+      }
+    }
+  },
+  "galleryHeader": {
+    "imageCount": "{{x}} of {{of}}"
+  },
+  "header": {
+    "assure": "Assure",
+    "carSubscription": "Car subscription",
+    "electromobility": "Electromobility",
+    "estimate": "Estimate",
+    "login": "Login",
+    "magazine": "Magazine",
+    "more": "More",
+    "search": "Search",
+    "searchMenu": {
+      "additional": "Additional",
+      "advancedSearch": "Advanced Search",
+      "comparison": "Comparison tool ({{ numberOfItems }})",
+      "dealer": "Dealer",
+      "insuranceComparison": "Insurance comparison",
+      "searchCars": "Rechercher des véhicules",
+      "searchMerchant": "Search a merchant",
+      "searchMotorcycles": "Search motorcycles",
+      "simpleSearch": "Simple Search (Home)",
+      "vehicles": "Vehicles",
+      "viewedListings": "Viewed listings"
+    },
+    "sell": "Sell",
+    "userMenu": {
+      "accountSettings": "Kontoeinstellungen",
+      "advertisePartsAccessories": "Advertise parts, accessories",
+      "autoRadar": "AutoRadar",
+      "bookmarks": "Bookmarks",
+      "businessImage": "BusinessImage",
+      "carPark": "Car park",
+      "cockpit": "Cockpit",
+      "contactDetails": "Contact details",
+      "contactRequests": "Contact requests",
+      "createAd": "Create Ad",
+      "dmsLog": "DmsLog",
+      "editPhotobar": "Edit photobar",
+      "editUser": "Member list",
+      "hci": "HCI",
+      "importInfo": "ImportInfo",
+      "infoPage": "InfoPage",
+      "infoPortal": "InfoPortal",
+      "insuranceComparison": "Insurance comparison",
+      "logout": "Logout",
+      "manageAdditionalTitles": "Manage additional titles",
+      "manageAutoRadar": "Manage AutoRadar",
+      "manageNotes": "Manage Notes",
+      "manageVehicles": "Manage vehicle",
+      "motorcyclePark": "Motorcycle park",
+      "myMotorcycles": "My Motorcycles",
+      "myVehicles": "My Vehicles",
+      "onlineAdvertising": "Online Advertising",
+      "openingHours": "Opening hours",
+      "optimizer": "OptimizerBasic",
+      "optimizerPro": "OptimizerPro",
+      "partnerHub": "PartnerHub",
+      "printableList": "Printable list",
+      "printingCenter": "Printing center",
+      "qualityLogo": "Quality logo",
+      "requisitions": "Requisitions",
+      "reviews": "Reviews",
+      "settings": "Ideas",
+      "toolsForPurchasing": "Tools for purchasing",
+      "toolsForSelling": "Tools for Selling",
+      "topCars": "TopCars",
+      "topListing": "TopListing",
+      "topListingPro": "TopListing Pro",
+      "topMotos": "TopMotos",
+      "userLanguage": "User language"
+    }
+  }
+}
