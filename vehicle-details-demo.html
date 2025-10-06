@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMW X4 xDrive 48V M40d - AutoScout24 Vehicle Details Demo</title>
+    <title>BMW X4 xDrive 30d - AutoScout24 Vehicle Details Demo</title>
     <style>
         * {
             margin: 0;
@@ -38,10 +38,14 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #ff6600;
+            display: inline-flex;
+            align-items: center;
             text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
         }
 
         .nav-links {
@@ -135,14 +139,17 @@
 
         .thumbnail-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
             gap: 0.5rem;
             padding: 1rem;
             background: #f9f9f9;
+            justify-items: center;
         }
 
         .thumbnail {
-            aspect-ratio: 4/3;
+            width: 100%;
+            max-width: 90px;
+            height: 60px;
             object-fit: cover;
             cursor: pointer;
             border: 2px solid transparent;
@@ -155,11 +162,24 @@
             border-color: #ff6600;
         }
 
+        .thumbnail-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 90px;
+            height: 60px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #666;
+        }
+
         .badge {
             position: absolute;
             top: 1rem;
             left: 1rem;
-            background: #d32f2f;
+            background: #ff6600;
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 4px;
@@ -168,6 +188,11 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+        }
+
+        .badge svg {
+            width: 1.25rem;
+            height: 1.25rem;
         }
 
         /* Vehicle Title Section */
@@ -186,9 +211,18 @@
         }
 
         .vehicle-subtitle {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.5rem;
             color: #666;
             font-size: 1rem;
             margin-bottom: 1.5rem;
+        }
+
+        .vehicle-subtitle-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .key-specs {
@@ -207,7 +241,9 @@
         }
 
         .spec-icon {
-            font-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            fill: #ff6600;
             margin-bottom: 0.25rem;
         }
 
@@ -596,7 +632,14 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <a href="#" class="logo">🚗 AutoScout24</a>
+            <a href="#" class="logo" aria-label="AutoScout24">
+                <svg class="logo-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect width="24" height="24" rx="4" fill="#fff"></rect>
+                    <path d="M2.5 16.5h19v3.5a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2v-3.5Z" fill="#002654"></path>
+                    <path d="M2.5 4.5a2 2 0 0 1 2-2h15a2 2 0 0 1 2 2v9h-19v-9Z" fill="#f5f200"></path>
+                    <path d="M2.5 13.5h19v3h-19z" fill="#ff6600"></path>
+                </svg>
+            </a>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#">Suchen</a></li>
@@ -618,28 +661,11 @@
             <span class="breadcrumb-separator">›</span>
             <a href="#">X4</a>
             <span class="breadcrumb-separator">›</span>
-            <span>BMW X4 xDrive 48V M40d Steptronic / Panorama / Harman/Kardon / Rückfahrkamera</span>
+            <span>BMW X4 xDrive 30d Steptronic</span>
         </div>
     </div>
 
-    <!-- Supabase Integration Info Banner -->
     <div class="container">
-        <div class="supabase-info">
-            <h3>
-                <span>🗄️</span>
-                Live Supabase Integration Demo
-            </h3>
-            <p style="margin-bottom: 1rem; opacity: 0.9;">This vehicle details page demonstrates the complete integration with your Supabase database. Data is fetched from your <strong>listings-db-24jul</strong> and <strong>images</strong> tables.</p>
-            <ul>
-                <li><span class="checkmark">✓</span> VehicleService.getById() for listing data</li>
-                <li><span class="checkmark">✓</span> Images fetched from images table</li>
-                <li><span class="checkmark">✓</span> Transform utilities for data formatting</li>
-                <li><span class="checkmark">✓</span> AutoScout24 theme components</li>
-                <li><span class="checkmark">✓</span> Responsive layout with Grid & Flex</li>
-                <li><span class="checkmark">✓</span> Real-time data updates ready</li>
-            </ul>
-        </div>
-
         <!-- Main Layout -->
         <div class="layout-grid">
             <!-- Main Content -->
@@ -647,71 +673,127 @@
                 <!-- Image Gallery -->
                 <div class="gallery" style="position: relative;">
                     <div class="badge">
-                        <span>⚡</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path fill="currentColor" fill-rule="evenodd" d="M13.5 2c-2 0-3.689.756-4.5 4-.163.654-.163 1.204-.163 1.684 0 .966 0 1.648-1.337 2.316-2 1-2.812-2.687-2.812-2.687C3.435 8.565 3.013 10.746 3 12.938a9 9 0 1 0 18 0C21 10.125 20.5 9 18.5 8c0 2.5 0 3.5-1 4.5 0-3.974-1.544-5.421-2.773-6.573C13.637 4.905 12.795 4.116 13.5 2M12 20a4 4 0 0 1-4-4c0-.888.646-1.789 1.354-2.776C10.407 11.754 11.598 10.094 11 8c4.5 3.5 5 5.79 5 8a4 4 0 0 1-4 4" clip-rule="evenodd"></path>
+                        </svg>
                         Leasing auch ohne Anzahlung möglich | Jetzt Termin vereinbaren!
                     </div>
                     <img 
                         id="mainImage"
-                        src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=1200&h=900&fit=crop" 
+                        src="https://listing-images.autoscout24.ch/83/12634083/1310823457.webp" 
                         alt="BMW X4 Main" 
                         class="main-image"
                     >
                     <div class="thumbnail-grid">
-                        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=200&h=150&fit=crop" alt="View 1" class="thumbnail active" onclick="changeImage(this)">
-                        <img src="https://images.unsplash.com/photo-1617814082923-cc2a5b8b5d5e?w=200&h=150&fit=crop" alt="View 2" class="thumbnail" onclick="changeImage(this)">
-                        <img src="https://images.unsplash.com/photo-1617814076392-2f95f8b9f7f7?w=200&h=150&fit=crop" alt="View 3" class="thumbnail" onclick="changeImage(this)">
-                        <img src="https://images.unsplash.com/photo-1617814076415-ec2f4e0b1e2e?w=200&h=150&fit=crop" alt="View 4" class="thumbnail" onclick="changeImage(this)">
-                        <img src="https://images.unsplash.com/photo-1617814076495-f8c5e8d8c8c8?w=200&h=150&fit=crop" alt="View 5" class="thumbnail" onclick="changeImage(this)">
-                        <img src="https://images.unsplash.com/photo-1617814076552-b2f0b0b0b0b0?w=200&h=150&fit=crop" alt="View 6" class="thumbnail" onclick="changeImage(this)">
-                        <div style="display: flex; align-items: center; justify-content: center; background: #f0f0f0; border-radius: 4px; font-weight: bold; color: #666;">+23 Bilder</div>
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/1310823457.webp" src="https://listing-images.autoscout24.ch/83/12634083/1310823457.webp" alt="Front view" class="thumbnail active" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/303102043.webp" src="https://listing-images.autoscout24.ch/83/12634083/303102043.webp" alt="Front angle" class="thumbnail" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/1936830298.webp" src="https://listing-images.autoscout24.ch/83/12634083/1936830298.webp" alt="Side view" class="thumbnail" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/1281238782.webp" src="https://listing-images.autoscout24.ch/83/12634083/1281238782.webp" alt="Rear view" class="thumbnail" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/213107699.webp" src="https://listing-images.autoscout24.ch/83/12634083/213107699.webp" alt="Interior" class="thumbnail" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/2104215660.webp" src="https://listing-images.autoscout24.ch/83/12634083/2104215660.webp" alt="Dashboard" class="thumbnail" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/669730606.webp" src="https://listing-images.autoscout24.ch/83/12634083/669730606.webp" alt="Rear seats" class="thumbnail" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/800107036.webp" src="https://listing-images.autoscout24.ch/83/12634083/800107036.webp" alt="Wheel close-up" class="thumbnail" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/101077839.webp" src="https://listing-images.autoscout24.ch/83/12634083/101077839.webp" alt="Boot" class="thumbnail" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/315303108.webp" src="https://listing-images.autoscout24.ch/83/12634083/315303108.webp" alt="Engine bay" class="thumbnail" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/1802432840.webp" src="https://listing-images.autoscout24.ch/83/12634083/1802432840.webp" alt="Detail view" class="thumbnail" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/1108353133.webp" src="https://listing-images.autoscout24.ch/83/12634083/1108353133.webp" alt="Seat detail" class="thumbnail" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/158379662.webp" src="https://listing-images.autoscout24.ch/83/12634083/158379662.webp" alt="Sunroof" class="thumbnail" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/211395526.webp" src="https://listing-images.autoscout24.ch/83/12634083/211395526.webp" alt="Control detail" class="thumbnail" onclick="changeImage(this)">
+                        <img data-full="https://listing-images.autoscout24.ch/83/12634083/929820140.webp" src="https://listing-images.autoscout24.ch/83/12634083/929820140.webp" alt="Rear detail" class="thumbnail" onclick="changeImage(this)">
                     </div>
                 </div>
 
                 <!-- Title Section -->
                 <div class="title-section">
-                    <h1 class="vehicle-title">BMW X4 xDrive 48V M40d Steptronic / Panorama / Harman/Kardon / Rückfahrkamera</h1>
-                    <p class="vehicle-subtitle">Ab 820-CHF pro Monat ohne Anzahlung / Panorama / Rückfahrkamera / Laserlicht / el.Sitze mit Memory / HeadUp /</p>
+                    <h1 class="vehicle-title">BMW X4 xDrive 30d Steptronic</h1>
+                    <div class="vehicle-subtitle">
+                        <p class="vehicle-subtitle-item">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" d="M12 1.93188L12.3511 2.06356L20.3511 5.06356L21 5.30689V5.99989V7.99989V8.99989H20H4H3V7.99989V5.99989V5.30688L3.64888 5.06356L11.6489 2.06356L12 1.93188ZM5 6.69289V6.99989H19V6.69288L12 4.06789L5 6.69289ZM3 9.99989H4H7H8V10.9999V16.9999V17.9999H6V16.9999V11.9999H5V16.9999V17.9999H3V16.9999V10.9999V9.99989ZM10.5 9.99989H9.5V10.9999V16.9999V17.9999H11.5V16.9999V11.9999H12.5V16.9999V17.9999H14.5V16.9999V10.9999V9.99989H13.5H10.5ZM16 9.99989H17H20H21V10.9999V16.9999V17.9999H19V16.9999V11.9999H18V16.9999V17.9999H16V16.9999V10.9999V9.99989ZM3 20.9999H21V18.9999H3V20.9999Z"></path>
+                            </svg>
+                            Ab 820-CHF pro Monat ohne Anzahlung
+                        </p>
+                        <p class="vehicle-subtitle-item">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" fill-rule="evenodd" d="M1.99025 19.263L1.92929 1.98292L13.0887 1.93691L16.2498 5.50065V9.25005H18.2498V5.12105L17.9979 4.45747L14.2849 0.271474L13.5327 -0.0649414L0.921652 -0.0129414L-0.0742188 0.990577L-0.00621873 20.2686L0.995842 21.265L9.25184 21.248L9.24771 19.248L1.99025 19.263ZM23.2498 17.3093C23.2498 20.6233 20.5638 23.3093 17.2498 23.3093C13.9358 23.3093 11.2498 20.6233 11.2498 17.3093C11.2498 13.9953 13.9358 11.3093 17.2498 11.3093C20.5638 11.3093 23.2498 13.9953 23.2498 17.3093ZM13.0248 17.3093C13.0248 19.6423 14.9168 21.5343 17.2498 21.5343C19.5828 21.5343 21.4748 19.6423 21.4748 17.3093C21.4748 14.9763 19.5828 13.0843 17.2498 13.0843C14.9168 13.0843 13.0248 14.9763 13.0248 17.3093ZM16.2498 14.3093V16.3093H14.2498V18.3093H16.2498V20.3093H18.2498V18.3093H20.2498V16.3093H18.2498V14.3093H16.2498ZM6.13076 7.65117C7.23582 7.65117 8.13164 6.75535 8.13164 5.65029C8.13164 4.54524 7.23582 3.64941 6.13076 3.64941C5.02571 3.64941 4.12988 4.54524 4.12988 5.65029C4.12988 6.75535 5.02571 7.65117 6.13076 7.65117ZM14.4412 9.99849L11.1698 6.33545L8.54101 9.8623L5.97033 8.64848L2.47546 15.3101H9.64594V13.3087H5.78563L6.85112 11.2777L9.16715 12.3713L11.3097 9.49678L12.9484 11.3317L14.4412 9.99849Z"></path>
+                            </svg>
+                            Rückfahrkamera
+                        </p>
+                        <p class="vehicle-subtitle-item">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" d="M18.17 5.59C18.098 5.484 16.35 3 12 3S5.902 5.484 5.83 5.59L4.165 4.482C4.259 4.341 6.525 1 12 1s7.741 3.34 7.835 3.482zM12 23c-5.476 0-7.741-3.34-7.835-3.482l1.67-1.102C5.902 18.516 7.649 21 12 21s6.098-2.484 6.17-2.59l1.665 1.107C19.741 19.66 17.475 23 12 23zM2 14.88l.977-.854a1.47 1.47 0 0 0 1.36.866 1.195 1.195 0 0 0 1.36-1.213c0-.692-.652-1.211-1.528-1.211h-.562v-1.051H4c.91 0 1.584-.508 1.584-1.19A1.102 1.102 0 0 0 4.36 9.109a1.466 1.466 0 0 0-1.27.693l-.865-.877A2.587 2.587 0 0 1 4.36 8a2.274 2.274 0 0 1 2.528 2.17 1.613 1.613 0 0 1-1.45 1.709v.022A1.744 1.744 0 0 1 7 13.714 2.394 2.394 0 0 1 4.337 16 2.599 2.599 0 0 1 2 14.88zm6-2.77C8 9.478 8.948 8 10.639 8a2.206 2.206 0 0 1 2 .9l-.804.854a1.306 1.306 0 0 0-1.196-.646c-.948 0-1.463 1.016-1.463 2.898h.02a1.746 1.746 0 0 1 1.649-1.132A2.24 2.24 0 0 1 13 13.344 2.393 2.393 0 0 1 10.557 16C8.938 16 8 14.568 8 12.11zm3.794 1.305a1.306 1.306 0 0 0-1.175-1.455 1.346 1.346 0 0 0-1.247 1.478 1.322 1.322 0 0 0 1.216 1.454 1.33 1.33 0 0 0 1.206-1.478zM14 12.006C14 9.616 14.799 8 16.515 8 18.182 8 19 9.616 19 12.006c0 2.4-.818 3.994-2.485 3.994C14.799 16 14 14.407 14 12.006zm3.866 0c0-1.882-.384-2.91-1.351-2.91s-1.38 1.028-1.38 2.91c0 1.87.414 2.91 1.38 2.91s1.351-1.04 1.351-2.91zM20 9.5a1.411 1.411 0 0 1 1.511-1.446A1.387 1.387 0 0 1 23 9.5a1.381 1.381 0 0 1-1.489 1.445A1.405 1.405 0 0 1 20 9.5zm2.18 0a.665.665 0 0 0-.668-.755.674.674 0 0 0-.68.755.679.679 0 0 0 .68.755.67.67 0 0 0 .668-.755z"></path>
+                            </svg>
+                            Abstandsregler
+                        </p>
+                        <p class="vehicle-subtitle-item">
+                            <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" d="M24 15a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 16a7 7 0 1 1 0-14 7 7 0 0 1 0 14ZM23 7.04h2v6h-2v-6Zm12 16h6v2h-6v-2Zm-12 12h2v6h-2v-6Zm8.586-1.993L33 31.633l4.419 4.42-1.415 1.414-4.418-4.42ZM10.587 12.042l1.415-1.414 4.411 4.413L15 16.455l-4.413-4.413ZM7 23.04h6v2H7v-2Zm24.58-7.995 4.418-4.42 1.415 1.415-4.42 4.42-1.413-1.415ZM10.586 36.037l4.412-4.413 1.415 1.414L12 37.451l-1.414-1.414Z"></path>
+                            </svg>
+                            Schiebedach
+                        </p>
+                        <p class="vehicle-subtitle-item">
+                            <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" d="M14 11h-4a3 3 0 0 1 0-6h4a3 3 0 0 1 0 6Zm-4-4a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2h-4Zm29 37H15l1-2h23v2Zm0-12H23l-1 2h17a2 2 0 0 1 0 4H16.768l-6.42-24H14a1.996 1.996 0 0 1 1.901 1.381L20.332 29H36l1-2H21.785l-3.981-12.238A3.99 3.99 0 0 0 14 12H7.743l7.49 28H39a4 4 0 1 0 0-8Z"></path>
+                            </svg>
+                            Leder
+                        </p>
+                    </div>
 
                     <div class="key-specs">
                         <div class="spec-item">
-                            <div class="spec-icon">📅</div>
+                            <svg class="spec-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" fill-rule="evenodd" d="M17 4h5v8H4v8h16v-6l2-1v9H2V4h5V2h2v2h6V2h2v2ZM7 6H4v4h16V6h-3v1l-2 1V6H9v1L7 8V6Zm1 10v-2H6v2h2Zm3-2h2v2h-2v-2Zm7 2v-2h-2v2h2Z" clip-rule="evenodd"></path>
+                            </svg>
                             <div class="spec-label">Erstzulassung</div>
-                            <div class="spec-value">08.2022</div>
+                            <div class="spec-value">2016</div>
                         </div>
                         <div class="spec-item">
-                            <div class="spec-icon">🛣️</div>
+                            <svg class="spec-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" fill-rule="evenodd" d="M2.03 21.758 6.97 2H9c0 .08-.01.161-.03.243L4.031 22H2c0-.08.01-.161.03-.242ZM22 22c0-.08-.01-.161-.03-.242L17.031 2H15c0 .08.01.161.03.243L19.97 22H22Zm-9 0v-6h-2v6h2ZM11 7V2h2v5h-2Zm2 2v5h-2V9h2Z" clip-rule="evenodd"></path>
+                            </svg>
                             <div class="spec-label">Kilometerstand</div>
-                            <div class="spec-value">46'000 km</div>
+                            <div class="spec-value">154'000 km</div>
                         </div>
                         <div class="spec-item">
-                            <div class="spec-icon">⚡</div>
+                            <svg class="spec-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" fill-rule="evenodd" d="M4.062 11A7.96 7.96 0 0 1 5.68 7.096l1.37 1.37L8.465 7.05l-1.37-1.37A7.96 7.96 0 0 1 11 4.062V6h2V4.062a7.96 7.96 0 0 1 3.906 1.619l-1.37 1.37-3.018 3.017A2.004 2.004 0 0 0 10 12.001a2 2 0 1 0 3.932-.518l3.018-3.018 1.37-1.37A7.96 7.96 0 0 1 19.938 11H18v2h1.938a7.972 7.972 0 0 1-2.078 4.446L16.414 16H7.586L6.14 17.447A7.972 7.972 0 0 1 4.062 13H6v-2H4.062Zm3.618 7.735A7.963 7.963 0 0 0 12 20a7.963 7.963 0 0 0 4.32-1.265L15.586 18H8.414l-.734.735ZM2 12C2 6.478 6.477 2 12 2s10 4.477 10 10c0 5.522-4.477 10-10 10S2 17.523 2 12Z" clip-rule="evenodd"></path>
+                            </svg>
                             <div class="spec-label">Leistung</div>
-                            <div class="spec-value">340 PS (250 kW)</div>
+                            <div class="spec-value">258 PS (190 kW)</div>
                         </div>
                         <div class="spec-item">
-                            <div class="spec-icon">⚙️</div>
+                            <svg class="spec-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" fill-rule="evenodd" d="M4 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm3-1a3.001 3.001 0 0 1-2 2.83V11h6V7.83a3.001 3.001 0 1 1 2 0V11h6V7.83a3.001 3.001 0 1 1 2 0V13h-8v3.171a3.001 3.001 0 1 1-2 0v-3.17H5v3.17a3.001 3.001 0 1 1-2 0V7.83A3.001 3.001 0 1 1 7 5Zm14 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-9 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm1-13a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM4 18a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm13-2h1.994c.763 0 1.402.133 1.856.462.473.342.697.858.697 1.505 0 .509-.138.93-.424 1.249-.19.213-.433.365-.71.472L22 22h-1.767l-1.39-2.092h-.29V22H17v-6Zm1.554 1.363v1.2h.448c.404 0 .642-.06.774-.148.105-.071.184-.187.184-.448 0-.262-.079-.38-.186-.453-.132-.09-.37-.151-.772-.151h-.448Z" clip-rule="evenodd"></path>
+                            </svg>
                             <div class="spec-label">Getriebe</div>
                             <div class="spec-value">Automat</div>
                         </div>
                         <div class="spec-item">
-                            <div class="spec-icon">⛽</div>
+                            <svg class="spec-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" fill-rule="evenodd" d="M4 8v5a2 2 0 0 0 1 1.72V2h14v8h-2V4H7v16h6v2H2v-2h3v-3.14A4 4 0 0 1 2 13V7l2 1ZM2 5l2 1V2H2v3Zm13 3H9V6h6v2Zm5.78 4.625-1.56-1.25L13.92 18h4l-2.7 3.375 1.56 1.25L22.08 16h-4l2.7-3.375Z" clip-rule="evenodd"></path>
+                            </svg>
                             <div class="spec-label">Kraftstoff</div>
                             <div class="spec-value">Diesel</div>
                         </div>
                         <div class="spec-item">
-                            <div class="spec-icon">🔧</div>
+                            <svg class="spec-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" fill-rule="evenodd" d="M4.5 2A2.5 2.5 0 0 0 2 4.5v3a2.5 2.5 0 0 0 5 0v-3A2.5 2.5 0 0 0 4.5 2ZM4 4.5a.5.5 0 0 1 1 0v3a.5.5 0 0 1-1 0v-3Zm13 0a2.5 2.5 0 0 1 5 0v3a2.5 2.5 0 0 1-5 0v-3Zm2.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 1 0v-3a.5.5 0 0 0-.5-.5ZM17 16.5a2.5 2.5 0 0 1 5 0v3a2.5 2.5 0 0 1-5 0v-3Zm2.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 1 0v-3a.5.5 0 0 0-.5-.5ZM2 16.5a2.5 2.5 0 0 1 5 0v3a2.5 2.5 0 0 1-5 0v-3Zm2.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 1 0v-3a.5.5 0 0 0-.5-.5ZM16 5H8v2h3v10H8v2h8v-2h-3V7h3V5Z" clip-rule="evenodd"></path>
+                            </svg>
                             <div class="spec-label">Antrieb</div>
                             <div class="spec-value">Allrad</div>
                         </div>
                         <div class="spec-item">
-                            <div class="spec-icon">🚗</div>
+                            <svg class="spec-icon" viewBox="0 0 100 68" aria-hidden="true" focusable="false">
+                                <path fill="currentColor" d="m40 21 2-2v8h-2z"></path>
+                                <path fill="currentColor" fill-rule="evenodd" d="M45.06 14.751c3.294-.038 6.096.059 7.732.386 3.27.653 6.826 2.843 9.85 4.82.442.29.873.575 1.292.852 1.045.692 2.015 1.333 2.902 1.87 1.272.772 2.213 1.226 2.832 1.337.65.116 1.805.287 3.278.506l1.118.166c1.992.297 4.373.66 6.736 1.065 2.36.405 4.719.856 6.662 1.332.97.237 1.854.485 2.588.74.713.25 1.37.533 1.827.87.506.373.89.906 1.188 1.47.302.573.547 1.236.75 1.935.404 1.398.667 3.038.84 4.595.345 3.12.345 6.051.345 6.357 0 .377-.192.637-.277.739a1.756 1.756 0 0 1-.309.285 4.348 4.348 0 0 1-.641.377c-.468.23-1.085.475-1.744.698-1.29.435-2.93.85-4.079.85H86v-2h1.95c.808 0 2.192-.324 3.44-.745a12.89 12.89 0 0 0 1.497-.596l.11-.057a60.433 60.433 0 0 0-.33-5.687c-.167-1.508-.414-3.02-.773-4.26-.18-.618-.38-1.144-.598-1.557-.222-.42-.433-.667-.605-.794-.205-.15-.624-.355-1.299-.59a27.174 27.174 0 0 0-2.406-.688c-1.875-.459-4.18-.9-6.524-1.303-2.34-.401-4.704-.76-6.693-1.058l-1.098-.163c-1.476-.22-2.673-.397-3.354-.518-1.031-.185-2.265-.836-3.517-1.595-.924-.56-1.945-1.235-3.004-1.936-.412-.272-.83-.548-1.25-.823-3.074-2.01-6.316-3.968-9.145-4.533-1.404-.28-4.008-.386-7.317-.347-3.278.038-7.158.215-11.059.47-7.483.488-14.964 1.256-18.372 1.856a1.847 1.847 0 0 1-.272 2.19l-5.956 6.217a1 1 0 0 0-.276.625l-.445 6.684a2.288 2.288 0 0 1-1.513 2.002.288.288 0 0 0-.191.27v2.568c0 .123.022.236.062.338.155.386.42 1.03.694 1.597.137.285.266.53.375.704l.06.092.055.016c.135.038.316.083.535.135.437.102.994.22 1.571.338 1.154.234 2.362.46 2.804.542.057.01.114.016.175.016H17v2h-3.668c-.18 0-.359-.016-.54-.05-.445-.082-1.667-.31-2.838-.548a59.555 59.555 0 0 1-1.63-.351 15.038 15.038 0 0 1-.619-.157 2.916 2.916 0 0 1-.512-.183 1.588 1.588 0 0 1-.48-.4 3.474 3.474 0 0 1-.278-.391 9.716 9.716 0 0 1-.481-.894c-.303-.63-.59-1.325-.75-1.725A2.907 2.907 0 0 1 5 39.632v-2.566c0-.967.608-1.83 1.518-2.155a.288.288 0 0 0 .19-.251l.446-6.684A3 3 0 0 1 7.98 26.1l5.86-6.116a1.777 1.777 0 0 1-.334-1.58 1.692 1.692 0 0 1 1.331-1.21c3.304-.637 11.232-1.458 19.057-1.969 3.922-.256 7.84-.435 11.166-.474m48.175 27.71-.002.001zM72 46H31v-2h41z" clip-rule="evenodd"></path>
+                            </svg>
                             <div class="spec-label">Fahrzeugtyp</div>
-                            <div class="spec-value">SUV / Geländewagen</div>
+                            <div class="spec-value">SUV</div>
                         </div>
                         <div class="spec-item">
-                            <div class="spec-icon">💧</div>
+                            <div class="spec-icon" aria-hidden="true" data-icon="consumption"></div>
                             <div class="spec-label">Verbrauch</div>
-                            <div class="spec-value">8.6 l/100 km</div>
+                            <div class="spec-value">6.0 l/100 km</div>
                         </div>
                     </div>
                 </div>
@@ -1089,7 +1171,7 @@
             const allThumbnails = document.querySelectorAll('.thumbnail');
             
             // Update main image
-            const fullSizeUrl = thumbnail.src.replace('w=200&h=150', 'w=1200&h=900');
+            const fullSizeUrl = thumbnail.dataset.full || thumbnail.src;
             mainImage.src = fullSizeUrl;
             
             // Update active state
