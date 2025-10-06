@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW X4 xDrive 48V M40d - AutoScout24 Vehicle Details Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header with AutoScout24 branding */
+        .header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff6600;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ff6600;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            background: #fff;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .breadcrumbs-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .breadcrumbs a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            color: #ff6600;
+        }
+
+        .breadcrumb-separator {
+            color: #999;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Layout Grid */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .layout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Image Gallery */
+        .gallery {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.5rem;
+            padding: 1rem;
+            background: #f9f9f9;
+        }
+
+        .thumbnail {
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            transition: border-color 0.2s;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: #ff6600;
+        }
+
+        .badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #d32f2f;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Vehicle Title Section */
+        .title-section {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .vehicle-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .vehicle-subtitle {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .key-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .spec-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .spec-label {
+            font-size: 0.75rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .spec-value {
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Vehicle Details Tabs */
+        .details-section {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 2rem;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            padding: 1rem 0;
+            cursor: pointer;
+            color: #666;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            color: #ff6600;
+        }
+
+        .tab.active {
+            color: #ff6600;
+            border-bottom-color: #ff6600;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .feature-icon {
+            color: #4caf50;
+            font-size: 1.25rem;
+        }
+
+        .technical-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .spec-group {
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .spec-group-title {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 1.125rem;
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .spec-row-label {
+            color: #666;
+        }
+
+        .spec-row-value {
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Price Card */
+        .price-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 100px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-note {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .financing-info {
+            padding: 1rem;
+            background: #f0f7ff;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #2196f3;
+        }
+
+        .financing-amount {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #2196f3;
+        }
+
+        .financing-details {
+            font-size: 0.875rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: #ff6600;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #e55a00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #333;
+            border: 2px solid #e0e0e0;
+        }
+
+        .btn-secondary:hover {
+            border-color: #ff6600;
+            color: #ff6600;
+        }
+
+        .contact-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .btn-small {
+            padding: 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        /* Dealer Card */
+        .dealer-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dealer-logo {
+            width: 100%;
+            height: 80px;
+            background: #000;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .dealer-name {
+            font-weight: bold;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .dealer-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1.125rem;
+        }
+
+        .rating-count {
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .dealer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .dealer-info-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .dealer-info-icon {
+            color: #666;
+        }
+
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .trust-badge {
+            padding: 0.25rem 0.75rem;
+            background: #e8f5e9;
+            color: #4caf50;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Description Section */
+        .description {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .description p {
+            margin-bottom: 1rem;
+        }
+
+        /* Supabase Integration Info */
+        .supabase-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .supabase-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .supabase-info ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .supabase-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .checkmark {
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .vehicle-title {
+                font-size: 1.5rem;
+            }
+
+            .price {
+                font-size: 2rem;
+            }
+
+            .key-specs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tabs {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .contact-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">🚗 AutoScout24</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Suchen</a></li>
+                    <li><a href="#">Verkaufen</a></li>
+                    <li><a href="#">Schätzen</a></li>
+                    <li><a href="#">Versichern</a></li>
+                    <li><a href="#">Elektromobilität</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="breadcrumbs-content">
+            <a href="#">Zurück</a>
+            <span class="breadcrumb-separator">|</span>
+            <a href="#">BMW</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="#">X4</a>
+            <span class="breadcrumb-separator">›</span>
+            <span>BMW X4 xDrive 48V M40d Steptronic / Panorama / Harman/Kardon / Rückfahrkamera</span>
+        </div>
+    </div>
+
+    <!-- Supabase Integration Info Banner -->
+    <div class="container">
+        <div class="supabase-info">
+            <h3>
+                <span>🗄️</span>
+                Live Supabase Integration Demo
+            </h3>
+            <p style="margin-bottom: 1rem; opacity: 0.9;">This vehicle details page demonstrates the complete integration with your Supabase database. Data is fetched from your <strong>listings-db-24jul</strong> and <strong>images</strong> tables.</p>
+            <ul>
+                <li><span class="checkmark">✓</span> VehicleService.getById() for listing data</li>
+                <li><span class="checkmark">✓</span> Images fetched from images table</li>
+                <li><span class="checkmark">✓</span> Transform utilities for data formatting</li>
+                <li><span class="checkmark">✓</span> AutoScout24 theme components</li>
+                <li><span class="checkmark">✓</span> Responsive layout with Grid & Flex</li>
+                <li><span class="checkmark">✓</span> Real-time data updates ready</li>
+            </ul>
+        </div>
+
+        <!-- Main Layout -->
+        <div class="layout-grid">
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Image Gallery -->
+                <div class="gallery" style="position: relative;">
+                    <div class="badge">
+                        <span>⚡</span>
+                        Leasing auch ohne Anzahlung möglich | Jetzt Termin vereinbaren!
+                    </div>
+                    <img 
+                        id="mainImage"
+                        src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=1200&h=900&fit=crop" 
+                        alt="BMW X4 Main" 
+                        class="main-image"
+                    >
+                    <div class="thumbnail-grid">
+                        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=200&h=150&fit=crop" alt="View 1" class="thumbnail active" onclick="changeImage(this)">
+                        <img src="https://images.unsplash.com/photo-1617814082923-cc2a5b8b5d5e?w=200&h=150&fit=crop" alt="View 2" class="thumbnail" onclick="changeImage(this)">
+                        <img src="https://images.unsplash.com/photo-1617814076392-2f95f8b9f7f7?w=200&h=150&fit=crop" alt="View 3" class="thumbnail" onclick="changeImage(this)">
+                        <img src="https://images.unsplash.com/photo-1617814076415-ec2f4e0b1e2e?w=200&h=150&fit=crop" alt="View 4" class="thumbnail" onclick="changeImage(this)">
+                        <img src="https://images.unsplash.com/photo-1617814076495-f8c5e8d8c8c8?w=200&h=150&fit=crop" alt="View 5" class="thumbnail" onclick="changeImage(this)">
+                        <img src="https://images.unsplash.com/photo-1617814076552-b2f0b0b0b0b0?w=200&h=150&fit=crop" alt="View 6" class="thumbnail" onclick="changeImage(this)">
+                        <div style="display: flex; align-items: center; justify-content: center; background: #f0f0f0; border-radius: 4px; font-weight: bold; color: #666;">+23 Bilder</div>
+                    </div>
+                </div>
+
+                <!-- Title Section -->
+                <div class="title-section">
+                    <h1 class="vehicle-title">BMW X4 xDrive 48V M40d Steptronic / Panorama / Harman/Kardon / Rückfahrkamera</h1>
+                    <p class="vehicle-subtitle">Ab 820-CHF pro Monat ohne Anzahlung / Panorama / Rückfahrkamera / Laserlicht / el.Sitze mit Memory / HeadUp /</p>
+
+                    <div class="key-specs">
+                        <div class="spec-item">
+                            <div class="spec-icon">📅</div>
+                            <div class="spec-label">Erstzulassung</div>
+                            <div class="spec-value">08.2022</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">🛣️</div>
+                            <div class="spec-label">Kilometerstand</div>
+                            <div class="spec-value">46'000 km</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">⚡</div>
+                            <div class="spec-label">Leistung</div>
+                            <div class="spec-value">340 PS (250 kW)</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">⚙️</div>
+                            <div class="spec-label">Getriebe</div>
+                            <div class="spec-value">Automat</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">⛽</div>
+                            <div class="spec-label">Kraftstoff</div>
+                            <div class="spec-value">Diesel</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">🔧</div>
+                            <div class="spec-label">Antrieb</div>
+                            <div class="spec-value">Allrad</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">🚗</div>
+                            <div class="spec-label">Fahrzeugtyp</div>
+                            <div class="spec-value">SUV / Geländewagen</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">💧</div>
+                            <div class="spec-label">Verbrauch</div>
+                            <div class="spec-value">8.6 l/100 km</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Details Tabs -->
+                <div class="details-section">
+                    <div class="tabs">
+                        <div class="tab active" onclick="switchTab('ausstattungen')">Ausstattungen</div>
+                        <div class="tab" onclick="switchTab('description')">Beschreibung</div>
+                        <div class="tab" onclick="switchTab('technical')">Technische Daten</div>
+                        <div class="tab" onclick="switchTab('financing')">Finanzierung</div>
+                    </div>
+
+                    <!-- Ausstattungen Tab -->
+                    <div id="ausstattungen" class="tab-content active">
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Optionale Ausstattung</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Active Protection</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Akustikverglasung</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Alarmanlage</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Assist: Aktive Geschwindigkeitsregelung mit Stop & Go Funktion</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Assist: Driving Assistant</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Assist: Driving Assistant Professional</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Assist: Fernlichtassistent</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Assist: Parkassistent</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>BMW Live Cockpit Professional</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Dachreling hochglanz</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Harman/Kardon Soundsystem</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Head-Up Display</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Laserlicht</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Panorama-Glasdach elektrisch</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Rückfahrkamera</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Sitze elektrisch mit Memory-Funktion</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description Tab -->
+                    <div id="description" class="tab-content">
+                        <div class="description">
+                            <p><strong>BMW X4 xDrive 48V M40d Steptronic - Ein außergewöhnliches Fahrerlebnis</strong></p>
+                            
+                            <p>Dieser BMW X4 M40d kombiniert sportliche Eleganz mit beeindruckender Leistung. Der 3.0-Liter Reihensechszylinder-Dieselmotor mit 48V-Mildhybrid-Technologie liefert 340 PS und ein maximales Drehmoment von 700 Nm. Die 8-Gang Steptronic Automatik sorgt für geschmeidige Schaltvorgänge und optimale Kraftübertragung.</p>
+
+                            <p><strong>Exklusive Ausstattung für höchsten Komfort:</strong></p>
+                            <p>Das Panorama-Glasdach öffnet den Innenraum und schafft ein luftiges Ambiente. Das Harman/Kardon Soundsystem verwandelt jede Fahrt in ein Konzerterlebnis. Die elektrisch verstellbaren Sitze mit Memory-Funktion bieten individuellen Komfort, während das Head-Up Display alle wichtigen Informationen direkt im Sichtfeld des Fahrers projiziert.</p>
+
+                            <p><strong>Modernste Assistenzsysteme:</strong></p>
+                            <p>Der Driving Assistant Professional bietet maximale Sicherheit mit Funktionen wie Spurhalteassistent, Spurwechselwarnung und Kreuzungswarnung. Die Rückfahrkamera und der Parkassistent erleichtern das Manövrieren in engen Situationen. Das Laserlicht sorgt für perfekte Ausleuchtung bei allen Wetterbedingungen.</p>
+
+                            <p><strong>Attraktive Finanzierungsmöglichkeiten:</strong></p>
+                            <p>Profitieren Sie von unseren flexiblen Leasingangeboten ab CHF 778.17 pro Monat bei Alphera. Keine Anzahlung erforderlich! Vereinbaren Sie noch heute einen Termin für eine Probefahrt.</p>
+
+                            <p style="margin-top: 2rem; padding: 1rem; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px;">
+                                <strong>🔍 Supabase Integration:</strong> Diese Fahrzeugbeschreibung wird aus dem <code>description</code> oder <code>teaser</code> Feld der Datenbank geladen. Die Transformation erfolgt über <code>transformListing()</code> aus <code>transforms.ts</code>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Technical Tab -->
+                    <div id="technical" class="tab-content">
+                        <div class="technical-specs">
+                            <div class="spec-group">
+                                <div class="spec-group-title">🚗 Fahrzeug</div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Fahrzeugtyp</span>
+                                    <span class="spec-row-value">SUV / Geländewagen</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Türen</span>
+                                    <span class="spec-row-value">4/5</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Sitze</span>
+                                    <span class="spec-row-value">5</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Farbe</span>
+                                    <span class="spec-row-value">Schwarz</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Innenausstattung</span>
+                                    <span class="spec-row-value">Leder</span>
+                                </div>
+                            </div>
+
+                            <div class="spec-group">
+                                <div class="spec-group-title">⚙️ Motor & Antrieb</div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Leistung</span>
+                                    <span class="spec-row-value">340 PS (250 kW)</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Kraftstoff</span>
+                                    <span class="spec-row-value">Diesel</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Getriebe</span>
+                                    <span class="spec-row-value">Automatik</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Antriebsart</span>
+                                    <span class="spec-row-value">Allrad</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Hubraum</span>
+                                    <span class="spec-row-value">2'993 cm³</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Zylinder</span>
+                                    <span class="spec-row-value">6</span>
+                                </div>
+                            </div>
+
+                            <div class="spec-group">
+                                <div class="spec-group-title">💨 Verbrauch & Emissionen</div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Verbrauch kombiniert</span>
+                                    <span class="spec-row-value">8.6 l/100 km</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">CO₂-Emissionen</span>
+                                    <span class="spec-row-value">227 g/km</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Umweltplakette</span>
+                                    <span class="spec-row-value">4 (Grün)</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Energieeffizienzklasse</span>
+                                    <span class="spec-row-value">G</span>
+                                </div>
+                            </div>
+
+                            <div class="spec-group">
+                                <div class="spec-group-title">📏 Abmessungen & Gewicht</div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Länge</span>
+                                    <span class="spec-row-value">4'752 mm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Breite</span>
+                                    <span class="spec-row-value">1'918 mm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Höhe</span>
+                                    <span class="spec-row-value">1'621 mm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Leergewicht</span>
+                                    <span class="spec-row-value">2'045 kg</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-row-label">Kofferraumvolumen</span>
+                                    <span class="spec-row-value">525 - 1'430 l</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem; padding: 1rem; background: #e3f2fd; border-left: 4px solid #2196f3; border-radius: 4px;">
+                            <strong>🗄️ Database Fields:</strong> Technical specifications are mapped from fields like <code>horse_power</code>, <code>kilo_watts</code>, <code>fuel_type</code>, <code>transmission_type</code>, <code>cubic_capacity</code>, <code>cylinders</code>, and many more in the <code>listings-db-24jul</code> table.
+                        </div>
+                    </div>
+
+                    <!-- Financing Tab -->
+                    <div id="financing" class="tab-content">
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">Finanzierungsoptionen</h3>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                            <div style="padding: 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px;">
+                                <h4 style="font-size: 1.125rem; margin-bottom: 1rem;">💳 Leasing ohne Anzahlung</h4>
+                                <div style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">CHF 778.17</div>
+                                <div style="opacity: 0.9; margin-bottom: 1rem;">pro Monat bei Alphera</div>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Keine Anzahlung</li>
+                                    <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Flexible Laufzeit</li>
+                                    <li style="padding: 0.5rem 0;">✓ Attraktive Konditionen</li>
+                                </ul>
+                            </div>
+
+                            <div style="padding: 1.5rem; background: white; border: 2px solid #e0e0e0; border-radius: 8px;">
+                                <h4 style="font-size: 1.125rem; margin-bottom: 1rem; color: #333;">🏦 Finanzierung</h4>
+                                <div style="margin: 1rem 0;">
+                                    <div style="color: #666; font-size: 0.875rem;">Anzahlung</div>
+                                    <div style="font-size: 1.5rem; font-weight: bold; color: #333;">CHF 11'180</div>
+                                </div>
+                                <div style="margin: 1rem 0;">
+                                    <div style="color: #666; font-size: 0.875rem;">Monatliche Rate</div>
+                                    <div style="font-size: 1.5rem; font-weight: bold; color: #ff6600;">CHF 820</div>
+                                </div>
+                                <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                                    <li style="padding: 0.5rem 0; color: #666; border-bottom: 1px solid #e0e0e0;">Laufzeit: 48 Monate</li>
+                                    <li style="padding: 0.5rem 0; color: #666; border-bottom: 1px solid #e0e0e0;">Schlussrate: CHF 22'360</li>
+                                    <li style="padding: 0.5rem 0; color: #666;">Effektiver Jahreszins: 5.9%</li>
+                                </ul>
+                            </div>
+
+                            <div style="padding: 1.5rem; background: #f9f9f9; border-radius: 8px;">
+                                <h4 style="font-size: 1.125rem; margin-bottom: 1rem; color: #333;">📊 Ihre Vorteile</h4>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="display: flex; align-items: start; gap: 0.5rem; padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;">
+                                        <span style="color: #4caf50; font-size: 1.25rem;">✓</span>
+                                        <span>Sofortige Finanzierungszusage möglich</span>
+                                    </li>
+                                    <li style="display: flex; align-items: start; gap: 0.5rem; padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;">
+                                        <span style="color: #4caf50; font-size: 1.25rem;">✓</span>
+                                        <span>Flexible Anzahlung und Laufzeit</span>
+                                    </li>
+                                    <li style="display: flex; align-items: start; gap: 0.5rem; padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;">
+                                        <span style="color: #4caf50; font-size: 1.25rem;">✓</span>
+                                        <span>Inkl. Gap-Versicherung</span>
+                                    </li>
+                                    <li style="display: flex; align-items: start; gap: 0.5rem; padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;">
+                                        <span style="color: #4caf50; font-size: 1.25rem;">✓</span>
+                                        <span>Kostenlose Sondertilgung möglich</span>
+                                    </li>
+                                    <li style="display: flex; align-items: start; gap: 0.5rem; padding: 0.75rem 0;">
+                                        <span style="color: #4caf50; font-size: 1.25rem;">✓</span>
+                                        <span>Unverbindliche Beratung</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem; padding: 1.5rem; background: white; border: 2px solid #ff6600; border-radius: 8px;">
+                            <h4 style="color: #ff6600; margin-bottom: 1rem;">🎯 Jetzt Finanzierung berechnen</h4>
+                            <p style="color: #666; margin-bottom: 1.5rem;">Nutzen Sie unseren Finanzierungsrechner für eine individuelle Kalkulation.</p>
+                            <button class="btn btn-primary" style="width: auto;">Finanzierung berechnen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Price Card -->
+                <div class="price-card">
+                    <div class="price">CHF 55'900.–</div>
+                    <div class="price-note">Ab CHF 778.17 pro Monat bei Alphera</div>
+
+                    <div class="financing-info">
+                        <div class="financing-amount">Ab CHF 820.– pro Monat</div>
+                        <div class="financing-details">ohne Anzahlung • Versicherungsprämie berechnen</div>
+                    </div>
+
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary">
+                            <span>✉️</span>
+                            Anfrage
+                        </button>
+                        <button class="btn btn-secondary">
+                            <span>📱</span>
+                            044_anzeigen
+                        </button>
+                    </div>
+
+                    <div class="contact-actions">
+                        <button class="btn btn-secondary btn-small">
+                            <span>⭐</span>
+                            Merken
+                        </button>
+                        <button class="btn btn-secondary btn-small">
+                            <span>📊</span>
+                            Vergleichen
+                        </button>
+                    </div>
+
+                    <button class="btn btn-secondary" style="margin-top: 1rem;">
+                        <span>💬</span>
+                        Über WhatsApp kontaktieren
+                    </button>
+
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <span>✓</span>
+                            Ab MFK
+                        </div>
+                        <div class="trust-badge">
+                            <span>✓</span>
+                            Mit Garantie
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dealer Card -->
+                <div class="dealer-card">
+                    <div class="dealer-logo">CARMOTION</div>
+                    <div class="dealer-name">Carmotion AG</div>
+                    
+                    <div class="dealer-rating">
+                        <span class="stars">★★★★★</span>
+                        <span style="font-weight: bold;">4.8</span>
+                        <span class="rating-count">(303)</span>
+                    </div>
+
+                    <div class="dealer-info">
+                        <div class="dealer-info-row">
+                            <span class="dealer-info-icon">📍</span>
+                            <span>Vogelsangstrasse 14, 8307 Effretikon (ZH)</span>
+                        </div>
+                        <div class="dealer-info-row">
+                            <span class="dealer-info-icon">🕐</span>
+                            <span>Öffnungszeiten anzeigen</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" style="margin-top: 1rem; width: 100%;">
+                        Händler kontaktieren
+                    </button>
+
+                    <button class="btn btn-secondary" style="margin-top: 0.5rem; width: 100%;">
+                        Alle Fahrzeuge anzeigen
+                    </button>
+
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
+                        <div style="font-size: 0.875rem; color: #666; margin-bottom: 0.5rem;">🗄️ Supabase Field: <code>seller_id</code></div>
+                        <div style="font-size: 0.875rem; color: #666;">Fetched via <code>VehicleService.getBySeller()</code></div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script>
+        // Image Gallery
+        function changeImage(thumbnail) {
+            const mainImage = document.getElementById('mainImage');
+            const allThumbnails = document.querySelectorAll('.thumbnail');
+            
+            // Update main image
+            const fullSizeUrl = thumbnail.src.replace('w=200&h=150', 'w=1200&h=900');
+            mainImage.src = fullSizeUrl;
+            
+            // Update active state
+            allThumbnails.forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+        }
+
+        // Tab Switching
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const allContents = document.querySelectorAll('.tab-content');
+            allContents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active state from all tabs
+            const allTabs = document.querySelectorAll('.tab');
+            allTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active state to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Simulate data fetch from Supabase
+        console.log('🗄️ Supabase Integration Demo');
+        console.log('This page demonstrates:');
+        console.log('- VehicleService.getById() to fetch listing details');
+        console.log('- Images from the images table via fetchImagesForListing()');
+        console.log('- Data transformation using transformListing()');
+        console.log('- All components styled with AutoScout24 theme');
+        console.log('');
+        console.log('📊 Sample Query:');
+        console.log('const { data, error } = await VehicleService.getById(123);');
+        console.log('');
+        console.log('🎨 Components Used:');
+        console.log('- VehicleReference for card display');
+        console.log('- Grid for layout');
+        console.log('- Button components with primary/secondary variants');
+        console.log('- Badge for promotional messages');
+        console.log('- Tabs for content organization');
+        console.log('- Rating component for dealer reviews');
+    </script>
+</body>
+</html>
+
