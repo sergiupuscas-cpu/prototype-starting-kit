@@ -7,6 +7,7 @@ export { default as AspectRatio } from './aspectRatio';
 export { default as Alert } from './alert';
 export { default as Badge } from './badge';
 export { default as Box } from './box';
+export type { BoxProps } from './box';
 export { default as Breadcrumbs } from './breadcrumbs';
 export { default as BreadcrumbsItem } from './breadcrumbs/Item';
 export { default as BreadcrumbLink } from './breadcrumbs/Link';
@@ -37,21 +38,19 @@ export { default as FormLabel } from './formLabel';
 export { default as FullHeight } from './fullHeight';
 export { default as Grid } from './grid';
 export { default as GridItem } from './grid/GridItem';
+export * from './heading';
 export { default as Hide } from './hide';
 export { default as Input } from './input';
 export { default as Link } from './link';
 export { default as ColorPicker } from './colorPicker';
-export {
-  LinkBox,
-  LinkOverlay,
-  LinkBoxProps,
-  LinkOverlayProps,
-} from './linkOverlay';
+export { LinkBox, LinkOverlay } from './linkOverlay';
+export type { LinkBoxProps, LinkOverlayProps } from './linkOverlay';
 export { default as List } from './list';
 export { default as OrderedList } from './list/OrderedList';
 export { default as UnorderedList } from './list/UnorderedList';
 export { default as ListItem } from './list/ListItem';
-export { SearchableList, ListItemWithChildren } from './list/SearchableList';
+export { SearchableList } from './list/SearchableList';
+export type { ListItemWithChildren } from './list/SearchableList';
 export { default as Menu } from './menu';
 export { default as MissingImage } from './missingImage';
 export { default as Pagination } from './pagination';
@@ -100,7 +99,8 @@ export { type UserTypeExternal } from './navigation/header/types';
 export { default as GalleryHeader } from './galleryHeader';
 export { default as SelectMenu } from './selectMenu';
 export { default as TopVehicleSharedBadge } from './topVehicleSharedBadge';
-export { SearchField, SearchFieldOptions } from './input/SearchField';
+export { SearchField } from './input/SearchField';
+export type { SearchFieldOptions } from './input/SearchField';
 export { default as FocusedHeader } from './focusedHeader';
 
 export {
@@ -108,7 +108,6 @@ export {
   type Props as ThemeProviderProps,
 } from './themeProvider';
 export { default as VehicleReference } from './vehicleReference';
-export { default as VehicleListingsGrid } from './vehicleListings';
 
 export * from './heading';
 export * from './icons';
@@ -119,5 +118,5 @@ export * from './carousel';
 
 export {
   default as TenantSelection,
-  TenantSelectionProps,
 } from './tenantSelection';
+export type { TenantSelectionProps } from './tenantSelection';

@@ -1,3 +1,3 @@
 import { Box, BoxProps } from '@chakra-ui/react';
-export { BoxProps };
+export type { BoxProps };
 export default Box;

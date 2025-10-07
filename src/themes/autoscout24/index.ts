@@ -1,4 +1,4 @@
-import { Brand } from 'src/types/brand';
+import { Brand } from '../../types/brand';
 
 import { shared } from '../shared';
 import { components } from '../components';

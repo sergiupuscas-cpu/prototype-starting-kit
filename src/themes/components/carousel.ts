@@ -1,6 +1,6 @@
 import { ComponentStyleConfig } from '@chakra-ui/react';
 
-import { hexToRgb } from 'src/lib/hexToRgb';
+import { hexToRgb } from '../../lib/hexToRgb';
 
 import { opacity } from '../shared/opacity';
 import { colors } from '../shared/colors';

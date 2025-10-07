@@ -1,12 +1,11 @@
 import globals from 'globals';
-import storybookConfig from 'eslint-plugin-storybook';
 // eslint-disable-next-line import/no-unresolved
 import reactConfig from '@smg-automotive/eslint-config/react';
 
 export default [
   ...reactConfig,
   {
-    ignores: ['!/.storybook', '!/jest-utils', '!.prettierrc.mjs', '/coverage'],
+    ignores: ['!/jest-utils', '!.prettierrc.mjs', '/coverage'],
   },
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
@@ -19,7 +18,6 @@ export default [
       },
     },
     rules: {
-      ...storybookConfig.configs.recommended.rules,
       'sonarjs/no-array-index-key': 'off',
       'testing-library/no-await-sync-events': [
         'error',
@@ -29,24 +27,13 @@ export default [
         'error',
         {
           devDependencies: [
-            './**/stories/**/*',
-            './**/*.stories.tsx',
             './**/*.Test.@(ts|tsx)',
             'rollup.config.mjs',
             'postcss.config.js',
             './jest-utils/**/*',
-            './.storybook/**/*',
-            './**/StorybookShared.tsx',
           ],
         },
       ],
-    },
-  },
-  {
-    files: ['**/*.stories.@(ts|tsx)'],
-    rules: {
-      'unicorn/filename-case': 'off',
-      'import/namespace': ['error', { allowComputed: true }],
     },
   },
   {

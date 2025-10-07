@@ -27,14 +27,21 @@ export class VehicleService {
       .from(this.IMAGES_TABLE)
       .select('*')
       .eq('listing_id', listingId)
-      .order('image_order', { ascending: true });
+      .order('image_order', { ascending: true, nullsFirst: false });
 
     if (error) {
       console.warn(`Failed to fetch images for listing ${listingId}:`, error);
       return [];
     }
 
-    return data || [];
+    // Sort numerically since image_order is stored as text
+    const sorted = (data || []).sort((a, b) => {
+      const orderA = parseInt(a.image_order || '999', 10);
+      const orderB = parseInt(b.image_order || '999', 10);
+      return orderA - orderB;
+    });
+
+    return sorted;
   }
 
   /**
@@ -49,7 +56,7 @@ export class VehicleService {
       .from(this.IMAGES_TABLE)
       .select('*')
       .in('listing_id', listingIds)
-      .order('image_order', { ascending: true });
+      .order('image_order', { ascending: true, nullsFirst: false });
 
     if (error) {
       console.warn('Failed to fetch images for listings:', error);
@@ -65,6 +72,15 @@ export class VehicleService {
         }
         imageMap.get(image.listing_id)!.push(image);
       }
+    });
+
+    // Sort each listing's images numerically since image_order is stored as text
+    imageMap.forEach((images, listingId) => {
+      images.sort((a, b) => {
+        const orderA = parseInt(a.image_order || '999', 10);
+        const orderB = parseInt(b.image_order || '999', 10);
+        return orderA - orderB;
+      });
     });
 
     return imageMap;

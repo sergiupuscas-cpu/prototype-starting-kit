@@ -11,3 +11,6 @@ storybook-static/
 # Environment variables
 .env
 .env.local
+
+# Demos directory has its own node_modules
+demos/node_modules/

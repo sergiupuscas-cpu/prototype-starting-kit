@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Components Demo - AutoScout24 Theme</title>
+    <style>
+      @font-face {
+        font-family: 'Make It Sans';
+        font-style: regular;
+        font-weight: 400;
+        src: url('/fonts/MakeItSans-Regular.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Make It Sans';
+        font-style: bold;
+        font-weight: 700;
+        src: url('/fonts/MakeItSans-Bold.woff2') format('woff2');
+      }
+
+      :root {
+        --font-primary: 'Make It Sans', Arial, Helvetica, Sans-Serif;
+      }
+
+      body {
+        font-family: var(--font-primary);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
